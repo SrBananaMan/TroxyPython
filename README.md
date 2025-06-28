@@ -30,5 +30,5 @@ join it, and you SHOULD be connected to the real terraria server.
 
 CREDITS
 
-Big thanks to ReLogic for NOT responding to my email.
+Big thanks to Re-Logic for NOT responding to my email asking for help.
 The idea for this proxy was originally triggered by my friend Axel, who was complaining that he couldn't connect to custom terraria servers on his PS5.
