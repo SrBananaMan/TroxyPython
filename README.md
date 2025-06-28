@@ -1,0 +1,2 @@
+# Troxy
+Transparent Terraria Proxy
