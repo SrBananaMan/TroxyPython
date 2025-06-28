@@ -25,3 +25,10 @@ from there, you should be able to configure where the proxy actually points to a
 after you have your ESP32 all configured, launch terraria on a console or mobile, and go the the multiplayer tab.
 after a few seconds (around 5) you should see a server called 'Terraria', hosted by 'TerrariaProxy'
 join it, and you SHOULD be connected to the real terraria server.
+
+
+
+CREDITS
+
+Big thanks to ReLogic for NOT responding to my email.
+The idea for this proxy was originally triggered by my friend Axel, who was complaining that he couldn't connect to custom terraria servers on his PS5.
