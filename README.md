@@ -1,5 +1,10 @@
+<StackPanel Orientation="Horizontal">
+  <img width="200" height="1311" alt="IMG_0049" src="https://github.com/user-attachments/assets/400707b3-3fc6-4868-9992-0c8e6366d239" />
+  <img width="700" alt="YEMP2627" src="https://github.com/user-attachments/assets/46ce63d2-1ef1-4914-99eb-39808db62f89" />
 
-![Terraria Proxy Running in a-Shell](ios.png)
+</StackPanel>
+
+
 
 # Terraria Proxy
 
