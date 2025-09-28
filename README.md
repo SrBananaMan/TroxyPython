@@ -1,3 +1,7 @@
+
+![Terraria Proxy Running in a-Shell](ios.png)
+*Terraria Proxy running in a-Shell on iOS, showing server status and broadcast logs.*
+
 # Terraria Proxy
 
 A lightweight Python script to proxy Terraria server connections, enabling Xbox consoles to discover and join a public or local Terraria server as if it were on the local network. This allows cross-platform play (Xbox with PC/mobile) and allows the Xbox player to exit sessions without disconnecting others. Forked from Troxy, it runs on PC, iOS (via a-Shell), or Android (via Pydroid 3) with minimal setup.
