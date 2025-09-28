@@ -1,34 +1,96 @@
-# Troxy
-Transparent Terraria Proxy
+# Terraria Proxy
 
-PS5 and Xbox does NOT let you connect to custom Terraria servers. 
-This tool is here to fix that problem.
-By spoofing itself as a terraria server on your wifi, it allows you to connect to (almost) any terraria server.
+A lightweight Python script to proxy Terraria server connections, enabling Xbox consoles to discover and join a public or local Terraria server as if it were on the local network. This allows cross-platform play (Xbox with PC/mobile) and allows the Xbox player to exit sessions without disconnecting others. Forked from Troxy, it runs on PC, iOS (via a-Shell), or Android (via Pydroid 3) with minimal setup.
 
+## Features
 
-HOW TO USE:
+- **Local Server Spoofing:** Broadcasts UDP packets on port 8888 to make a remote server (e.g., `t.dark-gaming.com:7777`) appear local to Xbox.
+- **Cross-Platform Play:** Xbox joins via local discovery; PC/mobile players join via public IP.
+- **No Computer Required:** Runs on iOS (a-Shell with one-tap Shortcut) or Android (Pydroid 3).
 
-using the arduino ide, make sure you have the espressif ESP32 boards installed.
-make sure you have the EspMDNS library installed.
+## Requirements
 
-the board i tested this code on is the esp32-s2-saola 
+- **Python 3.8+:** Uses built-in modules only (`socket`, `threading`, `time`, `json`).
+- **Supported Platforms:**
+  - PC: Windows, Linux, macOS
+  - iOS: a-Shell (free, App Store)
+  - Android: Pydroid 3 (free, Google Play)
+- **Network:** Proxy device must be on the same Wi-Fi as the Xbox (e.g., `192.168.1.x`).
 
-after you have all the libraries installed, upload the code to the ESP32.
+## Installation
 
-the ESP32 will boot and host a wifi called 'TerrariaProxyConfig'. connect to it, and open a web browser.
-in the web browser, navigate to http://192.168.4.1
-you should see a wifi configuration page. enter your wifi credentials, and then hit save.
+### Download the Script
+1. Clone this repository or download `Troxy.py`.
+2. Save to a local directory (e.g., `~/Documents` for a-Shell).
 
-after your ESP32 connects to your wifi, navigate to http://terrariaproxy.local in a web browser
-from there, you should be able to configure where the proxy actually points to and what server it connects you to.
+## Usage
 
-after you have your ESP32 all configured, launch terraria on a console or mobile, and go the the multiplayer tab.
-after a few seconds (around 5) you should see a server called 'Terraria', hosted by 'TerrariaProxy'
-join it, and you SHOULD be connected to the real terraria server.
+### Running on PC
+1. Install Python 3.8+ from [python.org](https://www.python.org).
+2. Open a terminal in the script’s directory.
+3. Run:
+   ```bash
+   python Troxy.py
+   ```
+4. If using prompts, enter:
+   - Server IP (e.g., `t.dark-gaming.com`)
+   - Port (e.g., `7777`)
 
+### Running on iOS (a-Shell)
+1. Install **a-Shell** (free, [App Store](https://apps.apple.com/us/app/a-shell/id1476949236)).
+2. Copy `Troxy.py` to a-Shell’s `~/Documents`:
+   - In a-Shell, type `open .` to access Files app, then copy the script to Documents.
+   - Or create: `nano Troxy.py`, paste script, save (`Ctrl+X`, `Y`, Enter).
+3. Navigate to the script:
+   ```bash
+   cd ~/Documents
+   ```
+4. Set permissions:
+   ```bash
+   chmod +x Troxy.py
+   ```
+5. Run:
+   ```bash
+   python Troxy.py
+   ```
+6. Keep a-Shell open to maintain the proxy.
 
+### Running on Android (Pydroid 3)
+1. Install **Pydroid 3** (free, [Google Play](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3)).
+2. Create or save `Troxy.py` in Pydroid’s editor.
+3. Tap the Run button (▶️).
+4. Keep Pydroid open or use “Run in Terminal” for semi-background mode.
 
-CREDITS
+### Testing the Proxy
+- **Xbox:** Open Terraria > Multiplayer > Join Game. Select “MyWorld” (or your custom name), enter password.
+- **Remote Players:** Join via server IP (e.g., `t.dark-gaming.com:7777`) on PC/mobile.
 
-Big thanks to Re-Logic for NOT responding to my email asking for help.
-The idea for this proxy was originally triggered by my friend Axel, who was complaining that he couldn't connect to custom terraria servers on his PS5.
+## Troubleshooting
+
+### Xbox Doesn’t See Server
+- Ensure proxy device is on the same Wi-Fi as Xbox (`192.168.1.x`).
+- Check logs for “Broadcast error” or “Server unreachable.”
+- Run proxy on a separate device if server is on the same PC (port 7777 conflict).
+
+### Port Conflict
+- If logs show “Cannot bind TCP port 7777”:
+  - Edit `CONFIG['port_7777'] = 7778` or use a different device.
+- Separate device recommended for best reliability.
+
+### iOS Proxy Pauses
+- Keep a-Shell open to avoid iOS pausing the app.
+- Enable Guided Access (Settings > Accessibility > Guided Access) to lock a-Shell.
+
+### Friend Can’t Join
+- Test server reachability: `telnet t.dark-gaming.com 7777`.
+- Ensure both platforms are on the same version
+
+## Limitations
+
+- **Nintendo Switch:** Incompatible due to Nintendo Switch Online (NSO) restrictions, which prevent local proxy discovery. Use mobile-hosted crossplay instead.
+- **iOS Background:** a-Shell pauses if minimized; keep open or use Guided Access.
+
+## Acknowledgments
+
+- Inspired by **Troxy** and community ESP32-based proxies.
+- Built on **TShock** and Terraria server protocols.
