@@ -1,6 +1,5 @@
 
 ![Terraria Proxy Running in a-Shell](ios.png)
-*Terraria Proxy running in a-Shell on iOS, showing server status and broadcast logs.*
 
 # Terraria Proxy
 
